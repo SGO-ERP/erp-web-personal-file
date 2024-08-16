@@ -1,0 +1,139 @@
+.staffing-table-css .ant-tree-node-content-wrapper {
+    border-radius: 4px;
+    border: 1px solid #3e79f7;
+    padding: 4px 0 4px 1em;
+    margin: 4px 0;
+    justify-content: space-between;
+}
+
+.staffing-table-css .ant-tree-node-content-wrapper-normal {
+    padding: 10px;
+}
+
+.staffing-table-css .ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    background-color: white;
+}
+
+.staffing-table-css .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    border: 2px solid #3e79f7 !important;
+    /* transition-property: all; */
+    /* transition-duration: 50; */
+    /* transition-timing-function: linear; */
+}
+.staffing-table-css .ant-tree-node-selected .ant-collapse-content {
+    background-color: #f0f0f0 !important;
+}
+
+.staffing-table-css
+    .ant-tree.ant-tree-block-node
+    .ant-tree-list-holder-inner
+    .ant-tree-node-content-wrapper {
+    flex: auto;
+    padding: initial;
+}
+
+.staffing-table-css .ant-collapse {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-variant: tabular-nums;
+    list-style: none;
+    border: none;
+}
+
+.staffing-table-css .ant-tree-switcher {
+    top: 17px;
+    left: 24px;
+    z-index: 10;
+    height: fit-content;
+}
+
+.staffing-table-css .ant-tree-draggable-icon {
+    margin-top: 10px;
+    margin-right: -15px;
+    font-size: 15px;
+    z-index: 10;
+}
+
+.staffing-table-css .title-normal {
+    font-weight: 400;
+    line-height: 12px;
+}
+
+.staffing-table-css .title-mute {
+    font-weight: 400;
+    line-height: 12px;
+    margin-top: 5px;
+    color: #a9a9a9;
+}
+
+.staffing-table-css .otdel-icons {
+    margin-left: auto;
+}
+.staffing-table-css @media (max-width: 1333px) {
+    .otdel-icons {
+        margin: 0 !important;
+    }
+}
+.staffing-table-css @media (max-width: 1311px) {
+    .schedule__left-side {
+        display: initial;
+        flex: 1;
+        max-width: initial;
+    }
+    .schedule__right-side {
+        display: initial;
+        flex: initial;
+        max-width: initial;
+    }
+}
+
+.staffing-table-css @layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 5px;
+        height: 20px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #e7e7e7;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #babbbe;
+        border-radius: 100vh;
+        border: 1px solid #f6f7ed;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #30d9bd;
+    }
+}
+.staffing-table-css .vertical-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.15s ease;
+    transform: scale(1);
+}
+.staffing-table-css .vertical-icon:hover {
+    transform: scale(1.1);
+}
+.staffing-table-css .vertical-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.15s ease;
+    transform: scale(1);
+}
+.staffing-table-css .vertical-icon:hover {
+    transform: scale(1.1);
+}
+.staffing-table-css .ant-collapse-expand-icon {
+    margin-top: 5px;
+}

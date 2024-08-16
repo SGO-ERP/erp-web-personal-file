@@ -1,0 +1,334 @@
+.name {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    margin-right: 10px;
+
+    color: #1a3353;
+    margin-top: 10px;
+}
+
+.date-num {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    /* Character/Secondary .45 */
+
+    color: #72849a;
+
+    /* Inside auto layout */
+
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.birthday {
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 6px;
+    /* new txt */
+    font-weight: bold;
+    color: #455560;
+}
+
+.avatar-text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    /* new txt */
+
+    color: #455560;
+}
+
+.menu-item {
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+}
+
+.header-text {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+
+    /* Character/Primary text */
+
+    color: #1a3353;
+}
+
+.timeline {
+    /* Body/regular */
+
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1a3353;
+}
+
+.timeline-mute {
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    /* Character/Primary .85 */
+
+    color: #72849a;
+}
+
+.ant-timeline-item-tail {
+    border-left-style: solid;
+    height: calc(100% - 3px);
+    border-left: 1px solid #366ef6;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ant-timeline.ant-timeline-pending .ant-timeline-item-last .ant-timeline-item-tail {
+    font-family: 'Roboto', sans-serif;
+
+    display: block;
+    height: calc(100% - 14px);
+    border-left: 2px solid #e6ebf1;
+}
+
+.items {
+    height: 21px;
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-right: 20px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+
+    /* Character/Secondary .45 */
+
+    color: #72849a;
+}
+
+.course {
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+    color: #1a3353;
+}
+
+.academy-mute {
+    font-family: 'Roboto', sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #455560;
+}
+
+.modal-text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #455560;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-text-mute {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-left: 3px;
+    color: #455560;
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-style {
+    font-family: 'Roboto', sans-serif;
+    word-spacing: 0.2em;
+}
+
+.paddingLR8 {
+    margin-right: 16px;
+    padding: 0 8px !important;
+}
+
+.edit-mode-banner {
+    margin: -25px -25px 20px -25px;
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 20px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editable-row {
+    display: flex;
+    align-items: center;
+}
+
+.ant-collapse-icon-position-end > .ant-collapse-item > .ant-collapse-header {
+    align-items: center;
+}
+
+.ant-cascader-menu {
+    height: unset;
+    max-height: 180px;
+}
+
+.user-info-container {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 5px;
+    grid-template-columns: auto 1fr;
+    margin-bottom: 7px;
+}
+
+/* na */
+.ant-upload.ant-upload-select-picture-card {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+.ant-upload-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #72849a;
+}
+
+.avatar-image {
+    width: 69px;
+    height: 69px;
+}
+
+.avatar-uploader.hasError .ant-upload-select-picture-card {
+    border: solid 1px red;
+}
+
+.clickable-accordion {
+    cursor: pointer;
+}
+
+.education-timeline-to-top {
+    margin-top: -25px;
+}
+
+.panel-with-hide {
+    overflow: hidden;
+    transition: max-height 1s ease;
+}
+
+.downloadable-document {
+    width: 100%;
+    height: auto;
+}
+
+.modal-text-info-primary {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #455560;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-text-key-primary {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #455560;
+}
+
+.modal-text-info-secondary {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #455560;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-text-key-secondary {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #455560;
+}
+
+.icon-nodata svg path:not(:last-child) {
+    fill: #366ef6;
+}
+
+.icon-nodata svg path:last-child {
+    fill: white;
+}
+
+.sport-degree {
+    display: flex;
+    align-items: center;
+}
+
+.sport-degree--status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #52c41a;
+    margin-inline-end: 8px;
+}
+.ant-modal-close-x {
+    width: 38px
+}

@@ -1,0 +1,67 @@
+.modal-text {
+    width: 37px;
+    height: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1a3353;
+}
+
+.table-text {
+    width: 141px;
+    height: 32px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1a3353;
+}
+
+.edit-mode-banner {
+    margin-left: -25px;
+    width: calc(100% + 50px);
+    margin-top: -25px;
+    margin-bottom: 20px;
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 20px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule-breadcrumb {
+    margin-left: 30px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1a3353;
+}
+
+.schedule-suitable {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #72849a;
+}
+
+.edit-mode-banner {
+    margin-left: -25px;
+    margin-top: -25px;
+    margin-bottom: 20px;
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 20px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

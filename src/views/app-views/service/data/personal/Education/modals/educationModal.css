@@ -1,0 +1,15 @@
+.modal-language-rate {
+    color: #366ef6;
+    display: flex;
+    width: 100%;
+}
+.modal-language-rate li.ant-rate-star {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.modalEducationAdd__institutionNameInput {
+    margin-bottom: 12px;
+}

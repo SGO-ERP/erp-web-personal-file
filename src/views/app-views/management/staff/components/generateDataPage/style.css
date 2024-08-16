@@ -1,0 +1,13 @@
+.style-upload .ant-upload-list-item-card-actions {
+    margin-bottom: 10px;
+}
+.style-upload .ant-upload-text-icon {
+    margin-left: 5px;
+}
+.style-upload .ant-btn ant-btn-default {
+    width: 300px;
+}
+.style-upload .ant-upload-list-item-info {
+    width: 420px;
+    margin: 24px;
+}

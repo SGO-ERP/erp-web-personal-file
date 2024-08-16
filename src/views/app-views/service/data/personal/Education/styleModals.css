@@ -1,0 +1,47 @@
+/* for all modals = fam*/
+
+.fam_full_width {
+    width: 100%;
+}
+
+.fam_invisible_text {
+    position: relative;
+    color: transparent;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.fam_form_title_symbol {
+    margin-right: 4px;
+    color: red;
+}
+
+.fam_form_title_text {
+    font-weight: 500;
+    color: rgb(26, 51, 83);
+}
+
+.fam_check_box {
+    line-height: 32px;
+}
+
+.fam_select_add_button {
+    height: 90px;
+}
+
+.dropdown-menu-down .ant-select-dropdown {
+    top: initial !important;
+    bottom: 100% !important;
+    background-color: red;
+}
+
+/* education = edc */
+
+.edc_dragger {
+    display: 'flex';
+    justify-content: 'space-between';
+    margin-right: '20px';
+    align-items: 'center';
+    background-color: red;
+}

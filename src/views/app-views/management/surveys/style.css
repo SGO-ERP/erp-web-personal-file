@@ -1,0 +1,10 @@
+.survey-modal .blueBlock {
+    width: 100px;
+    background-color: #0050b3;
+    border-radius: 4px 4px 0px 0px;
+    opacity: 0.699999988079071;
+}
+
+.survey-modal .ant-cascader-menu {
+    height: 82px;
+}

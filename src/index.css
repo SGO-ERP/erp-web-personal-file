@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+.loading.cover-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.loading.cover-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading .ant-spin {
+    color: #3e79f7;
+}
+
+.lock {
+    overflow: hidden;
+}
+
+.watermark-wrapper p {
+    color: #000 !important;
+}
+
+/* Assuming you have a class "custom-select" on your select element */
+.ecp-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8.5px 11px !important;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid rgb(230, 235, 241);
+    border-radius: 0.625rem 0 0 0.625rem;
+}
+
+.ecp-select::placeholder {
+    color: #bfbfbf;
+}
+
+/* Style the arrow icon (▼) for the dropdown */
+.ecp-select::-ms-expand {
+    display: none;
+}
+
+.ecp-select::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #999;
+}
+
+/* Style the focus state of the select element */
+.ecp-select:focus {
+    border-color: #1890ff;
+}
+
+/* Style the disabled state of the select element */
+.ecp-select:disabled {
+    background-color: #f5f5f5;
+    color: #ccc;
+    border-color: #d9d9d9;
+}
+
+.ant-avatar img {
+    object-position: top;
+}
+
+.ql-container {
+    font-family: 'Times New Roman', Arial, Helvetica, sans-serif !important;
+}
+
+.document-a4 .ant-card-body,
+.document-a4 .ql-editor {
+    padding: 0.875cm 0.525cm 0.47cm 1.27cm;
+}
+
+.document-a4 img {
+    width: 130px;
+}

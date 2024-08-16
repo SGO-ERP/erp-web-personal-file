@@ -1,0 +1,97 @@
+.Editor {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.Editor-header {
+    background-color: #282c34;
+    min-height: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+.wrapper-class {
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.editor-class {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.toolbar-class {
+    border: 1px solid #ccc;
+}
+
+.code-view {
+    padding: 1rem;
+
+    margin: 10px;
+}
+
+.text-area {
+    width: 100%;
+    background: black;
+    border: 1px solid #ccc;
+    color: white;
+    min-height: 200px;
+}
+
+.TFInput {
+    height: 35px;
+}
+
+.TFSelect {
+    height: 32px;
+    margin-bottom: 4%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(114, 132, 154, 0.4);
+}
+
+.TFText {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1a3353;
+    margin: 9% 0 17% 2px;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+#many a.active {
+    color: #000;
+}
+
+/* custom-cascader.css */
+.custom-cascader .ant-cascader-menu {
+    width: 100% !important;
+}
+
+.custom-cascader .ant-cascader-menus {
+    width: 100%;
+}
+
+.custom-cascader .ant-cascader-menu {
+    width: 100%;
+    max-width: none;
+}
+
+.ql-container .ql-editor {
+    min-height: 280px !important;
+}

@@ -1,0 +1,15 @@
+.by-question-container {
+    margin: 0 -25px -25px -25px;
+    padding: 30px 50px;
+    background-color: rgb(250, 250, 251);
+}
+
+.by-question-container .ant-collapse-header {
+    align-items: center !important;
+}
+
+.by-question-container .ant-collapse-expand-icon {
+    margin-right: -36px;
+    position: relative;
+    z-index: 2;
+}

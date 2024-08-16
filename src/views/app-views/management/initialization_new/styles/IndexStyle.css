@@ -1,0 +1,43 @@
+.headerButtons {
+    margin-left: 10px;
+}
+
+.headerCascader {
+    width: 400px;
+}
+
+.tagsBlockMain {
+    min-width: 500px;
+}
+
+.dueDateBlock {
+    min-width: 500px;
+}
+
+.userFormMain {
+    min-width: 500px;
+}
+
+.commentFieldBlock {
+    min-width: 500px;
+}
+
+.textBlockMain {
+    min-width: 500px;
+}
+
+.textBlockMain img {
+    width: 150px;
+}
+
+.chooseUser {
+    min-width: 300px;
+    width: 98%;
+}
+
+.auto-user .avatar-status.d-flex.align-items-center .ant-avatar {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    object-position: top;
+}

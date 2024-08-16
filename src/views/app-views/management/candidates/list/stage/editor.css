@@ -1,0 +1,62 @@
+.watermark-wrapper {
+    position: relative;
+}
+
+.watermark-grid {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-rows: repeat(auto-fill, 100px);
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    flex-wrap: wrap;
+    line-height: 100px;
+}
+
+.watermark-grid::before {
+    content: attr(data-text);
+    margin-left: -7750px;
+    font-size: 20px;
+    opacity: 0.7;
+    color: rgba(200, 200, 200, 0.5);
+    transform: rotate(-45deg);
+}
+
+.ql-container.ql-snow .ql-editor {
+    color: black !important;
+}
+
+.ql-container .ql-editor {
+    color: black !important;
+    min-height: 500px;
+}
+
+.ql-snow * {
+    color: #000000;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='times-new-roman']::before {
+    font-family: 'Times New Roman';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='times-new-roman']::before {
+    font-family: 'Times New Roman';
+}
+
+.ql-font-times-new-roman {
+    font-family: 'Times New Roman';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='times-new-roman']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='times-new-roman']::before {
+    content: 'Times';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label .ql-picker-item::before {
+    content: attr(data-value) !important;
+}

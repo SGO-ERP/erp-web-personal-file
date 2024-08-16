@@ -1,0 +1,4 @@
+.letters-container .avatar-status + span img {
+    top: 80px !important;
+    left: -55px !important;
+}

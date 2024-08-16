@@ -1,0 +1,37 @@
+import React from 'react';
+import { Card, Col, Input, Row } from 'antd';
+import IntlMessage from '../../../../components/util-components/IntlMessage';
+import { getComment } from 'store/slices/newInitializationsSlices/initializationNewSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
+const { TextArea } = Input;
+
+const CommentField = () => {
+    const dispatch = useDispatch();
+
+    const { comment } = useSelector((state) => state.initializationNew);
+
+    const handleChangeText = (e) => {
+        dispatch(getComment(e.target.value));
+    };
+
+    return (
+        <Card style={{ width: '100%' }}>
+            <Row justify="center" gutter={[0, 16]}>
+                <Col span={24}>
+                    <IntlMessage id={'addComment'} />
+                </Col>
+                <Col span={24}>
+                    <TextArea
+                        value={comment}
+                        onChange={handleChangeText}
+                        allowClear={true}
+                        placeholder={'Введите комментарий'}
+                    />
+                </Col>
+            </Row>
+        </Card>
+    );
+};
+
+export default CommentField;

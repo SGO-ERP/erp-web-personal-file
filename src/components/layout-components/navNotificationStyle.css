@@ -1,0 +1,15 @@
+.nav-notification {
+    max-width: 300px;
+}
+
+.nav-notification-body {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.nav-notification-footer {
+    position: sticky;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+}

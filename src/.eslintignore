@@ -1,0 +1,7 @@
+node_modules
+/.vscode
+/.git
+types/index.js
+src/API/types/*
+/src/API/types/*
+/src/API/types/*

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Token Handling</title>
+</head>
+<body>
+<h1>Login</h1>
+
+<script>
+    // Function to extract the token from the URL path
+    function getTokenFromPath() {
+        const searchParams = new URLSearchParams(window.location.search);
+        return searchParams.get('token_session');
+    }
+
+    // Function to handle token retrieval and store in local storage
+    async function handleToken() {
+        try {
+            const tokenSession = getTokenFromPath();
+            if (!tokenSession) {
+                console.error('Token not found in URL.');
+                return;
+            }
+
+            const response = await fetch(`https://10.15.3.180/api/v1/authorization?token_base64=${tokenSession}`);
+            const data = await response.json();
+
+            // Store the tokens in the browser's local storage
+            localStorage.setItem('auth_token', data.auth_token);
+            localStorage.setItem('refresh_token', data.refresh_token);
+
+            // Redirect to the dashboard page
+            window.location.href = '/dashboard';
+        } catch (error) {
+            console.error('Authentication failed:', error);
+        }
+    }
+
+    // Automatically handle token retrieval when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        handleToken();
+    });
+</script>
+</body>
+</html>

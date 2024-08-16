@@ -1,0 +1,12 @@
+.notification-modal .ant-modal-content {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.notification-modal .ant-table-tbody > tr > td {
+    border-bottom: none;
+}
+
+.notification-modal .ant-table-row:hover {
+
+}

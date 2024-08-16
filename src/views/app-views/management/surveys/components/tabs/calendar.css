@@ -1,0 +1,53 @@
+.survey-calendar .fc .fc-toolbar.fc-header-toolbar {
+    display: none;
+}
+
+.survey-calendar {
+    padding: 40px 20px;
+    /*background-color: #F9F9FA;*/
+}
+
+.survey-calendar .fc .fc-col-header-cell-cushion {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial,
+        noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.survey-calendar .fc-scrollgrid-sync-inner {
+    text-align: right;
+}
+
+.survey-calendar .fc .fc-daygrid-day-number {
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.survey-calendar .fc-theme-standard td,
+.fc-theme-standard th {
+    border: none;
+    border-top: 2px solid rgba(5, 5, 5, 0.06);
+}
+
+.survey-calendar .fc-theme-standard .fc-scrollgrid {
+    border: none;
+}
+
+.survey-calendar .fc .fc-daygrid-day.fc-day-today {
+    background: rgba(62, 121, 247, 0.1);
+}
+
+.survey-calendar .fc .fc-highlight {
+    background: #f5f5f5;
+}
+
+table.fc-col-header,
+.fc-scroller > div,
+.fc-scroller > div > table {
+    width: 100% !important;
+}
+
+.fc .fc-daygrid-day-frame {
+    min-height: 158px;
+}

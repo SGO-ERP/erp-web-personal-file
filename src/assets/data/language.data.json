@@ -1,0 +1,14 @@
+[
+    {
+        "langName": "Русский",
+        "langId": "ru",
+        "icon": "ru",
+        "lang": "Ru"
+    },
+    {
+        "langName": "Қазақ",
+        "langId": "kk",
+        "icon": "kk",
+        "lang": "Kz"
+    }
+]

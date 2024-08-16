@@ -1,0 +1,70 @@
+input[type='checkbox'] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.checkbox {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 2px #ddd solid;
+    border-radius: 5px;
+    margin-right: 4px;
+}
+
+.customCheckbox .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: red;
+    border: red;
+}
+
+.customCheckbox .ant-checkbox-checked .ant-checkbox-inner::after {
+    content: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.69354 4.90855L9.20917 0.717927C9.2681 0.648284 9.21854 0.54248 9.12747 0.54248H8.05872C7.99578 0.54248 7.93551 0.570605 7.89399 0.61882L4.99444 4.07552L2.09488 0.61882C2.0547 0.570605 1.99444 0.54248 1.93015 0.54248H0.861401C0.770329 0.54248 0.720776 0.648284 0.779704 0.717927L4.29533 4.90855L0.779704 9.09918C0.766504 9.1147 0.758035 9.13369 0.755303 9.15388C0.752572 9.17407 0.755692 9.19462 0.764293 9.2131C0.772895 9.23157 0.786617 9.24719 0.80383 9.25809C0.821043 9.269 0.841024 9.27474 0.861401 9.27462H1.93015C1.9931 9.27462 2.05336 9.2465 2.09488 9.19828L4.99444 5.74159L7.89399 9.19828C7.93417 9.2465 7.99444 9.27462 8.05872 9.27462H9.12747C9.21854 9.27462 9.2681 9.16882 9.20917 9.09918L5.69354 4.90855Z' fill='white'/%3E%3C/svg%3E");
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+}
+
+.unsignedTable.ant-table-tbody > tr > td .single-checkboxs {
+    text-align: center;
+}
+
+/* Изменение цвета рамки и псевдоэлемента при наведении */
+.customCheckbox.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+    border-color: red;
+}
+
+.customCheckbox.ant-checkbox-wrapper:hover .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: red;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+}
+
+/* Изменение цвета рамки и псевдоэлемента при фокусе */
+.customCheckbox .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: red;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+}
+
+.commentBtn {
+}
+
+/* ================================= Media Query for table ========================================== */
+
+@media only screen and (max-width: 1180px) {
+    .ant-table-content {
+        overflow-x: auto !important;
+    }
+}
+
+.ant-table-row-indent + .ant-table-row-expand-icon {
+    display: none !important;
+}
