@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Col, Modal, Row, Typography } from "antd";
 import { AvatarStatus } from "components/shared-components/AvatarStatus";
 import { useEffect, useState } from "react";

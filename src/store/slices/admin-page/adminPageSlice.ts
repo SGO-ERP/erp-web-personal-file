@@ -412,7 +412,7 @@ export const adminPage = createSlice({
         builder.addCase(getRanks.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.ranks.loading = false;
-                state.ranks.data = action.payload.data;
+                state.ranks.data = action.payload.data as RankPaginationRead;
             }
         });
         builder.addCase(getRanks.rejected, (state, action) => {
@@ -429,7 +429,7 @@ export const adminPage = createSlice({
         builder.addCase(getPosition.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.position.loading = false;
-                state.position.data = action.payload.data;
+                state.position.data = action.payload.data as PositionPaginationRead;
             }
         });
         builder.addCase(getPosition.rejected, (state, action) => {
@@ -446,7 +446,7 @@ export const adminPage = createSlice({
         builder.addCase(getPenaltyTypes.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.penalty_types.loading = false;
-                state.penalty_types.data = action.payload.data;
+                state.penalty_types.data = action.payload.data as PenaltyPaginationRead;
             }
         });
         builder.addCase(getPenaltyTypes.rejected, (state, action) => {
@@ -463,7 +463,7 @@ export const adminPage = createSlice({
         builder.addCase(getPermissions.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.permissions.loading = false;
-                state.permissions.data = action.payload.data;
+                state.permissions.data = action.payload.data as PermissionPaginationRead;
             }
         });
         builder.addCase(getPermissions.rejected, (state, action) => {
@@ -480,7 +480,7 @@ export const adminPage = createSlice({
         builder.addCase(getPropertyTypes.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.property_types.loading = false;
-                state.property_types.data = action.payload.data;
+                state.property_types.data = action.payload.data as PropertyTypePaginationRead;
             }
         });
         builder.addCase(getPropertyTypes.rejected, (state, action) => {
@@ -497,7 +497,7 @@ export const adminPage = createSlice({
         builder.addCase(getSportTypes.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.sport_types.loading = false;
-                state.sport_types.data = action.payload.data;
+                state.sport_types.data = action.payload.data as SportTypePaginationRead;
             }
         });
         builder.addCase(getSportTypes.rejected, (state, action) => {
@@ -514,7 +514,7 @@ export const adminPage = createSlice({
         builder.addCase(getStatusTypes.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.status_types.loading = false;
-                state.status_types.data = action.payload.data;
+                state.status_types.data = action.payload.data as StatusTypePaginationRead;
             }
         });
         builder.addCase(getStatusTypes.rejected, (state, action) => {
@@ -531,7 +531,7 @@ export const adminPage = createSlice({
         builder.addCase(getSpecialties.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.specialties.loading = false;
-                state.specialties.data = action.payload.data;
+                state.specialties.data = action.payload.data as components["schemas"]["SpecialtyRead"][];
             }
         });
         builder.addCase(getSpecialties.rejected, (state, action) => {
@@ -548,7 +548,7 @@ export const adminPage = createSlice({
         builder.addCase(getAcademicDegree.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.academic_degree.loading = false;
-                state.academic_degree.data = action.payload.data;
+                state.academic_degree.data = action.payload.data as components["schemas"]["AcademicDegreeDegreeRead"][];
             }
         });
         builder.addCase(getAcademicDegree.rejected, (state, action) => {
@@ -565,7 +565,7 @@ export const adminPage = createSlice({
         builder.addCase(getAcademicTitle.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.academic_title.loading = false;
-                state.academic_title.data = action.payload.data;
+                state.academic_title.data = action.payload.data as components["schemas"]["AcademicTitleDegreeRead"][];
             }
         });
         builder.addCase(getAcademicTitle.rejected, (state, action) => {
@@ -582,7 +582,7 @@ export const adminPage = createSlice({
         builder.addCase(getCountry.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.country.loading = false;
-                state.country.data = action.payload.data;
+                state.country.data = action.payload.data as components["schemas"]["CountryRead"][];
             }
         });
         builder.addCase(getCountry.rejected, (state, action) => {
@@ -599,7 +599,7 @@ export const adminPage = createSlice({
         builder.addCase(getCourseProvider.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.course_provider.loading = false;
-                state.course_provider.data = action.payload.data;
+                state.course_provider.data = action.payload.data as components["schemas"]["CourseProviderRead"][];
             }
         });
         builder.addCase(getCourseProvider.rejected, (state, action) => {
@@ -616,7 +616,7 @@ export const adminPage = createSlice({
         builder.addCase(getInstitutyionDegreeType.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.institution_degree_type.loading = false;
-                state.institution_degree_type.data = action.payload.data;
+                state.institution_degree_type.data = action.payload.data as components["schemas"]["InstitutionDegreeTypeRead"][];
             }
         });
         builder.addCase(getInstitutyionDegreeType.rejected, (state, action) => {
@@ -633,7 +633,7 @@ export const adminPage = createSlice({
         builder.addCase(getInstitutyion.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.institution.loading = false;
-                state.institution.data = action.payload.data;
+                state.institution.data = action.payload.data as components["schemas"]["InstitutionRead"][];
             }
         });
         builder.addCase(getInstitutyion.rejected, (state, action) => {
@@ -650,7 +650,7 @@ export const adminPage = createSlice({
         builder.addCase(getLanguage.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.language.loading = false;
-                state.language.data = action.payload.data;
+                state.language.data = action.payload.data as components["schemas"]["LanguageRead"][];
             }
         });
         builder.addCase(getLanguage.rejected, (state, action) => {
@@ -667,7 +667,7 @@ export const adminPage = createSlice({
         builder.addCase(getScience.fulfilled, (state, action) => {
             if (action?.payload && action.payload.data) {
                 state.science.loading = false;
-                state.science.data = action.payload.data;
+                state.science.data = action.payload.data as components["schemas"]["ScienceRead"][];
             }
         });
         builder.addCase(getScience.rejected, (state, action) => {

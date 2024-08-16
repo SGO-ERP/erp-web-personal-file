@@ -53,7 +53,7 @@ export const StaffDivisionSlice = createSlice({
         builder.addCase(getStaffDivision.fulfilled, (state, action) => {
             if (action.payload.data) {
                 state.loading = false;
-                state.data = action.payload.data;
+                state.data = action.payload.data as components['schemas']['StaffDivisionRead'][];
             }
         });
         builder.addCase(getStaffDivision.rejected, (state, action) => {

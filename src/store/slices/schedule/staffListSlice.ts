@@ -23,15 +23,17 @@ export const initialState: staffListState = {
     error: null,
 };
 
-export const getStaffListDrafts = createAsyncThunk(
+export const getStaffListDrafts = createAsyncThunk<
+    { data: any[]; hasMore: boolean }, // Return type
+    { skip?: number; limit?: number }, // Argument type
+    { state: RootState } // ThunkAPI configuration
+>(
     'staffList/getDrafts',
     async (
         {
-            // @ts-expect-error Exists
             skip = 1,
-            // @ts-expect-error Exists
             limit = 5,
-        }: operations['get_history_api_v1_staff_list_drafts__get']['parameters']['query'],
+        }: { skip?: number; limit?: number },
         thunkAPI,
     ) => {
         skip = (skip - 1) * limit;
@@ -50,18 +52,23 @@ export const getStaffListDrafts = createAsyncThunk(
             }
             return { data: response.data, hasMore };
         }
+        // Optionally, return an empty result if the response doesn't contain data
+        return { data: [], hasMore: false };
     },
 );
 
-export const getStaffListSigned = createAsyncThunk(
+
+export const getStaffListSigned = createAsyncThunk<
+    { data: any[]; hasMore: boolean }, // Return type
+    { skip?: number; limit?: number }, // Argument type
+    { state: RootState } // ThunkAPI configuration
+>(
     'staffList/getSigned',
     async (
         {
-            // @ts-expect-error Exists
             skip = 1,
-            // @ts-expect-error Exists
             limit = 5,
-        }: operations['get_history_api_v1_staff_list_signed__get']['parameters']['query'],
+        },
         thunkAPI,
     ) => {
         skip = (skip - 1) * limit;
@@ -85,6 +92,7 @@ export const getStaffListSigned = createAsyncThunk(
             }
             return { data: response.data, hasMore };
         }
+        return { data: [], hasMore: false };
     },
 );
 
