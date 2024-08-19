@@ -1,6 +1,6 @@
-import React, {createContext, useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import React, { createContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import {
     Avatar,
@@ -17,21 +17,22 @@ import {
 
 import IntlMessage from '../../../../../components/util-components/IntlMessage';
 import ModalReason from './ModalReason';
-import {RootState} from '../../../../../store';
-import {components} from '../../../../../API/types';
+import { RootState } from '../../../../../store';
+import { components } from '../../../../../API/types';
 import {
     clearCustomzationData,
     clearData,
     removeData,
 } from '../../../../../store/slices/bsp/month-plan/listPresentUsers';
-import {useAppSelector} from '../../../../../hooks/useStore';
-import {PrivateServices} from '../../../../../API';
-import {APP_PREFIX_PATH} from '../../../../../configs/AppConfig';
-import {getUsersBySchedule} from '../../../../../store/slices/bsp/month-plan/ListUsersData';
-import {getLessonsBsp} from '../../../../../store/slices/bsp/month-plan/tableMonthPlanSlice';
+import { useAppSelector } from '../../../../../hooks/useStore';
+import { PrivateServices } from '../../../../../API';
+import { APP_PREFIX_PATH } from '../../../../../configs/AppConfig';
+import { getUsersBySchedule } from '../../../../../store/slices/bsp/month-plan/ListUsersData';
+import { getLessonsBsp } from '../../../../../store/slices/bsp/month-plan/tableMonthPlanSlice';
 import {
     getUsersAbsent
 } from '../../../../../store/slices/bsp/month-plan/tableAbsentAttendanceSlice';
+import { ColumnsType } from 'antd/es/table';
 
 const Index = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +64,7 @@ const Index = () => {
     const schedule_year_id = searchParams.get('schedule_year_id');
     const mode = searchParams.get('mode');
 
-    const dataListAbsentUsers = useAppSelector((state:RootState)=>state.tableAbsentAttendance.data);
+    const dataListAbsentUsers = useAppSelector((state: RootState) => state.tableAbsentAttendance.data);
 
 
     const currentYear = new Date().getFullYear();
@@ -76,7 +77,7 @@ const Index = () => {
         if (schedule_year_id) {
             dispatch(
                 getUsersBySchedule({
-                    path: {id: schedule_year_id},
+                    path: { id: schedule_year_id },
                     query: {
                         skip: (current - 1) * pageSize,
                         limit: pageSize,
@@ -86,7 +87,7 @@ const Index = () => {
 
             dispatch(
                 getUsersAbsent({
-                    path: {id: schedule_year_id},
+                    path: { id: schedule_year_id },
                     // query: {
                     //     skip: (currentAbsent - 1) * pageSizeAbsent,
                     //     limit: pageSizeAbsent,
@@ -97,11 +98,11 @@ const Index = () => {
     }, [schedule_year_id]);
 
 
-    const column = [
+    const column: ColumnsType<any> = [
         {
             dataIndex: ['last_name', 'first_name', 'father_name'],
             key: 'full_name',
-            title: <IntlMessage id={'csp.list.users.participant'}/>,
+            title: <IntlMessage id={'csp.list.users.participant'} />,
             render: (_: string, record: components['schemas']['UserShortRead']) => (
                 <div className="d-flex">
                     <Row align="middle">
@@ -115,9 +116,8 @@ const Index = () => {
                             </Avatar>
                         </Col>
                         <Col>
-                            <Typography.Text>{`${record.last_name} ${record.first_name} ${
-                                record?.father_name || ''
-                            }`}</Typography.Text>
+                            <Typography.Text>{`${record.last_name} ${record.first_name} ${record?.father_name || ''
+                                }`}</Typography.Text>
                         </Col>
                     </Row>
                 </div>
@@ -136,7 +136,7 @@ const Index = () => {
         {
             dataIndex: 'checkbox',
             key: 'checkbox',
-            title: <IntlMessage id={'csp.list.users.participant.table.checkbox'}/>,
+            title: <IntlMessage id={'csp.list.users.participant.table.checkbox'} />,
             render: (_: string, record: components['schemas']['UserShortRead']) => (
                 <Checkbox
                     onClick={() => {
@@ -144,7 +144,7 @@ const Index = () => {
                     }}
                     onChange={(e) => checked(e.target.checked)}
                     checked={!!list.find((l) => l.user_id === record.id)}
-                    style={{display: 'flex', justifyContent: 'center'}}
+                    style={{ display: 'flex', justifyContent: 'center' }}
                 />
             ),
             width: '20%',
@@ -191,34 +191,34 @@ const Index = () => {
                             `${APP_PREFIX_PATH}/management/combat-starting-position/month-plan`,
                         );
                         notification.success({
-                            message: <IntlMessage id={'bsp.month.plan.success'}/>,
+                            message: <IntlMessage id={'bsp.month.plan.success'} />,
                         });
                         dispatch(clearData());
                     });
                 });
             });
         } else if (mode === 'read') {
-             list.map(async (item) => {
-                 await PrivateServices.post('/api/v1/attendance/status_change/schedule', {
-                     body: item,
-                 }).then(async (response) => {
-                     await dispatch(
-                         getLessonsBsp({
-                             query: {
-                                 skip: 0,
-                                 limit: 10,
-                                 filter_year: currentYear?.toString(),
-                                 filter_month: (currentMonth + 1)?.toString(),
-                             },
-                         }),
-                     );
-                     navigate(`${APP_PREFIX_PATH}/management/combat-starting-position/month-plan`);
-                     notification.success({
-                         message: <IntlMessage id={'bsp.month.plan.success'}/>,
-                     });
-                     dispatch(clearData());
-                 });
-             });
+            list.map(async (item) => {
+                await PrivateServices.post('/api/v1/attendance/status_change/schedule', {
+                    body: item,
+                }).then(async (response) => {
+                    await dispatch(
+                        getLessonsBsp({
+                            query: {
+                                skip: 0,
+                                limit: 10,
+                                filter_year: currentYear?.toString(),
+                                filter_month: (currentMonth + 1)?.toString(),
+                            },
+                        }),
+                    );
+                    navigate(`${APP_PREFIX_PATH}/management/combat-starting-position/month-plan`);
+                    notification.success({
+                        message: <IntlMessage id={'bsp.month.plan.success'} />,
+                    });
+                    dispatch(clearData());
+                });
+            });
         }
     };
 
@@ -238,7 +238,7 @@ const Index = () => {
                 );
                 navigate(`${APP_PREFIX_PATH}/management/combat-starting-position/month-plan`);
                 notification.success({
-                    message: <IntlMessage id={'bsp.month.plan.success'}/>,
+                    message: <IntlMessage id={'bsp.month.plan.success'} />,
                 });
                 dispatch(clearData());
             });
@@ -256,12 +256,12 @@ const Index = () => {
             />
 
             <PageHeader
-                title={<IntlMessage id={'sidenav.management.combat-starting-position'}/>}
+                title={<IntlMessage id={'sidenav.management.combat-starting-position'} />}
                 subTitle={
                     selectedTable === 'absent' ? (
-                        <IntlMessage id={'watch.subtitle'}/>
+                        <IntlMessage id={'watch.subtitle'} />
                     ) : (
-                        <IntlMessage id={'csp.create.list.users.subTitle'}/>
+                        <IntlMessage id={'csp.create.list.users.subTitle'} />
                     )
                 }
                 extra={
@@ -274,7 +274,7 @@ const Index = () => {
                                 );
                             }}
                         >
-                            <IntlMessage id={'initiate.back'}/>
+                            <IntlMessage id={'initiate.back'} />
                         </Button>
                     </>
                 }
@@ -302,22 +302,22 @@ const Index = () => {
                         />
                     </Radio.Button>
 
-                    <Radio.Button value="absent" disabled={mode==='edit'}>
-                        <IntlMessage id={'csp.month.plan.attendance.second.absent'}/>
+                    <Radio.Button value="absent" disabled={mode === 'edit'}>
+                        <IntlMessage id={'csp.month.plan.attendance.second.absent'} />
                     </Radio.Button>
                 </Radio.Group>
 
-                <Typography.Title level={4} style={{marginTop:'15px'}}>
+                <Typography.Title level={4} style={{ marginTop: '15px' }}>
                     <Typography.Text strong>
                         {selectedTable === 'absent' ? (
-                            <IntlMessage id={'watch.title'}/>
+                            <IntlMessage id={'watch.title'} />
                         ) : (
-                            <IntlMessage id={'csp.create.list.users.title'}/>
+                            <IntlMessage id={'csp.create.list.users.title'} />
                         )}
                     </Typography.Text>
                 </Typography.Title>
                 {selectedTable === 'present' &&
-                    <div style={{marginTop: '15px'}}>
+                    <div style={{ marginTop: '15px' }}>
                         <Table
                             dataSource={dataSource.objects}
                             columns={column}
@@ -332,15 +332,15 @@ const Index = () => {
                                 onChange: (page: number) => {
                                     setCurrent(page);
                                     schedule_year_id &&
-                                    dispatch(
-                                        getUsersBySchedule({
-                                            path: {id: schedule_year_id},
-                                            query: {
-                                                skip: (page - 1) * pageSize,
-                                                limit: pageSize,
-                                            },
-                                        }),
-                                    );
+                                        dispatch(
+                                            getUsersBySchedule({
+                                                path: { id: schedule_year_id },
+                                                query: {
+                                                    skip: (page - 1) * pageSize,
+                                                    limit: pageSize,
+                                                },
+                                            }),
+                                        );
                                 },
                                 onShowSizeChange: (current: number, size: number) => {
                                     setPageSize(size);
@@ -348,7 +348,7 @@ const Index = () => {
                                     dispatch(
                                         schedule_year_id &&
                                         getUsersBySchedule({
-                                            path: {id: schedule_year_id},
+                                            path: { id: schedule_year_id },
                                             query: {
                                                 skip: (current - 1) * pageSize,
                                                 limit: pageSize,
@@ -359,7 +359,7 @@ const Index = () => {
                             }}
                             rowKey="id"
                         />
-                        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Row gutter={16}>
                                 <Col>
                                     <Button
@@ -367,7 +367,7 @@ const Index = () => {
                                             notAttemptPeople();
                                         }}
                                     >
-                                        <IntlMessage id={'not.have.people.absent'}/>
+                                        <IntlMessage id={'not.have.people.absent'} />
                                     </Button>
                                 </Col>
                                 <Col>
@@ -380,15 +380,15 @@ const Index = () => {
                                             !(list.length > 0)
                                         }
                                     >
-                                        <IntlMessage id={'service.data.modalAddPsycho.save'}/>
+                                        <IntlMessage id={'service.data.modalAddPsycho.save'} />
                                     </Button>
                                 </Col>
                             </Row>
                         </div>
                     </div>
                 }
-                {selectedTable==='absent' &&
-                    <div style={{marginTop: '15px'}}>
+                {selectedTable === 'absent' &&
+                    <div style={{ marginTop: '15px' }}>
                         <Table
                             dataSource={dataListAbsentUsers.objects}
                             columns={column}
@@ -403,15 +403,15 @@ const Index = () => {
                                 onChange: (page: number) => {
                                     setCurrent(page);
                                     schedule_year_id &&
-                                    dispatch(
-                                        getUsersAbsent({
-                                            path: {id: schedule_year_id},
-                                            // query: {
-                                            //     skip: (page - 1) * pageSizeAbsent,
-                                            //     limit: pageSizeAbsent,
-                                            // },
-                                        }),
-                                    );
+                                        dispatch(
+                                            getUsersAbsent({
+                                                path: { id: schedule_year_id },
+                                                // query: {
+                                                //     skip: (page - 1) * pageSizeAbsent,
+                                                //     limit: pageSizeAbsent,
+                                                // },
+                                            }),
+                                        );
                                 },
                                 onShowSizeChange: (currentAbsent: number, size: number) => {
                                     setPageSize(size);
@@ -419,7 +419,7 @@ const Index = () => {
                                     dispatch(
                                         schedule_year_id &&
                                         getUsersAbsent({
-                                            path: {id: schedule_year_id},
+                                            path: { id: schedule_year_id },
                                             // query: {
                                             //     skip: (currentAbsent - 1) * pageSizeAbsent,
                                             //     limit: pageSizeAbsent,
@@ -430,7 +430,7 @@ const Index = () => {
                             }}
                             rowKey="id"
                         />
-                        <div style={{display: 'flex', justifyContent: 'flex-end',marginTop:'15px'}}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '15px' }}>
                             <Row gutter={16}>
                                 <Col>
                                     <Button
@@ -442,7 +442,7 @@ const Index = () => {
                                             !(list.length > 0)
                                         }
                                     >
-                                        <IntlMessage id={'service.data.modalAddPsycho.save'}/>
+                                        <IntlMessage id={'service.data.modalAddPsycho.save'} />
                                     </Button>
                                 </Col>
                             </Row>

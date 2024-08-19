@@ -78,7 +78,7 @@ const ApprovedTableCSP = () => {
         });
     };
 
-    const columns = [
+    const columns: any = [
         {
             dataIndex: 'created_at',
             key: 'created_at',

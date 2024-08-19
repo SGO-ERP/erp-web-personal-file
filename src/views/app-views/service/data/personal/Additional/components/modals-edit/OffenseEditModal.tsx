@@ -1,5 +1,5 @@
 import { components } from 'API/types';
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Button, DatePicker, Form, Input, Modal, Row, Upload, message } from 'antd';
 import IntlMessage, { IntlMessageText } from 'components/util-components/IntlMessage';
 import LanguageSwitcher from 'components/shared-components/LanguageSwitcher';
@@ -53,21 +53,21 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
 
     const violations = useAppSelector((state) => state.myInfo.edited.additional.violations);
 
-    const handleInputArticleNumber = (event) => {
+    const handleInputArticleNumber = (event: ChangeEvent<HTMLInputElement>) => {
         setArticle_number({
             ...article_number,
             [currentLanguage === 'rus' ? 'name' : 'nameKZ']: event.target.value,
         });
     };
 
-    const handleInputIssuedBy = (event) => {
+    const handleInputIssuedBy = (event: ChangeEvent<HTMLInputElement>) => {
         setIssued_by({
             ...issued_by,
             [currentLanguage === 'rus' ? 'name' : 'nameKZ']: event.target.value,
         });
     };
 
-    const handleInputConsequence = (event) => {
+    const handleInputConsequence = (event: ChangeEvent<HTMLInputElement>) => {
         setConsequence({
             ...consequence,
             [currentLanguage === 'rus' ? 'name' : 'nameKZ']: event.target.value,
@@ -86,9 +86,9 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
         return e?.fileList;
     };
 
-    const validateFileList = (rule, value) => {
+    const validateFileList = (rule: any, value: any) => {
         setFilesChanged(true);
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             if (!value || value.length === 0) {
                 resolve();
             } else if (value.length > 1) {
@@ -303,7 +303,7 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
         const isRusEmpty = violationNameOption.rus.label.trim() === '';
         const isKZEmpty = violationNameOption.kaz.label.trim() === '';
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             if (isRusEmpty && isKZEmpty) {
                 reject(<IntlMessage id="education.course.names.empty" />);
             } else if (isKZEmpty) {
@@ -320,7 +320,7 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
         const isRusEmpty = issued_by.name === null || issued_by.name.trim() === '';
         const isKZEmpty = issued_by.nameKZ === null || issued_by.nameKZ.trim() === '';
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             if (isRusEmpty && isKZEmpty) {
                 reject(<IntlMessage id="education.course.names.empty" />);
             } else if (isKZEmpty) {
@@ -337,7 +337,7 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
         const isRusEmpty = article_number.name === null || article_number.name.trim() === '';
         const isKZEmpty = article_number.nameKZ === null || article_number.nameKZ.trim() === '';
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             if (isRusEmpty && isKZEmpty) {
                 reject(<IntlMessage id="education.course.names.empty" />);
             } else if (isKZEmpty) {
@@ -354,7 +354,7 @@ const OffenseEditModal: FC<TOffenseEditModal> = ({ isOpen, offense, onClose, sou
         const isRusEmpty = consequence.name === null || consequence.name.trim() === '';
         const isKZEmpty = consequence.nameKZ === null || consequence.nameKZ.trim() === '';
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             if (isRusEmpty && isKZEmpty) {
                 reject(<IntlMessage id="education.course.names.empty" />);
             } else if (isKZEmpty) {

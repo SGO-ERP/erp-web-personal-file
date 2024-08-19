@@ -10,6 +10,7 @@ import {
     setTableSize,
 } from "../../../../../../store/slices/admin-page/adminRanksSlice";
 import { nameSorter, tableRankDelete } from "../utils/TableFunctions";
+import { ColumnType } from "antd/es/table";
 
 interface Props {
     setRecord: (record: RankData) => void;
@@ -34,14 +35,15 @@ const RankTable = ({ setRecord, record }: Props) => {
     const { rank_types, tablePagination } = useAppSelector((state) => state.adminRanks);
     const { tableSearch } = useAppSelector((state) => state.adminPage);
 
-    const filteredData =
-        tableSearch.trim() === ""
-            ? rank_types.data.objects
-            : rank_types.data.objects.filter(
-                  (e: any) =>
-                      (e.name && e.name.toLowerCase().includes(tableSearch.toLowerCase())) ||
-                      (e.nameKZ && e.nameKZ.toLowerCase().includes(tableSearch.toLowerCase())),
-              );
+    const filteredData = (tableSearch.trim() === ""
+        ? rank_types.data.objects
+        : rank_types.data.objects.filter(
+            (e: any) =>
+                (e.name && e.name.toLowerCase().includes(tableSearch.toLowerCase())) ||
+                (e.nameKZ && e.nameKZ.toLowerCase().includes(tableSearch.toLowerCase()))
+        )) as RankData[];
+
+
     const total = filteredData.length;
 
     const dispatch = useAppDispatch();
@@ -76,7 +78,7 @@ const RankTable = ({ setRecord, record }: Props) => {
         dispatch(setLoadingModal(false));
     };
 
-    const columns = [
+    const columns: ColumnType<RankData>[] = [
         {
             title: (
                 <div style={{ display: "flex", alignItems: "center" }}>

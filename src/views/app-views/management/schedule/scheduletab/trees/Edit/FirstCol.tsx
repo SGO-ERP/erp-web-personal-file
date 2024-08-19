@@ -94,7 +94,7 @@ export const FirstCol = ({ staffDivision, staffUnit }: Props) => {
             },
         ];
         if (division.children && division.children?.length > 0) {
-            getDivisionParents(division.children[0], updatedParents);
+            getDivisionParents(division.children[0] as components["schemas"]["ArchiveStaffDivisionRead"], updatedParents);
         } else {
             setDivisionParents(updatedParents);
         }
@@ -305,7 +305,7 @@ export const FirstCol = ({ staffDivision, staffUnit }: Props) => {
         });
     };
 
-    const position = staffUnit?.position !== null
+    const position: any = staffUnit?.position !== null
         ?
         staffUnit.position
         :

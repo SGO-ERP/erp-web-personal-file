@@ -11,6 +11,8 @@ import {
     setTableSize,
 } from "store/slices/admin-page/adminBadgeSlice";
 import { nameSorter, tableBadgeDelete } from "../utils/TableFunctions";
+import { BadgeOrderMapTypes } from "../modals/utils/interfaces";
+import { ColumnType } from "antd/es/table";
 
 interface Props {
     setRecord: (record: any) => void;
@@ -94,7 +96,7 @@ const BadgeTypesTable = ({ setRecord, record }: Props) => {
         }
     };
 
-    const columns = [
+    const columns: ColumnType<RecordTypes>[]  = [
         {
             title: (
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -136,7 +138,7 @@ const BadgeTypesTable = ({ setRecord, record }: Props) => {
                 { text: LocalText.getName(namesBadgeOrders.defaultMedal), value: 1 },
                 { text: LocalText.getName(namesBadgeOrders.otherMedal), value: 0 },
             ],
-            onFilter: (value: string, record: any) => {
+            onFilter: (value: React.Key | boolean, record: RecordTypes) => {
                 console.log(value);
                 const newTotal =
                     badgeSource.filter((item: any) => item.badge_order === value).length ?? 0;
@@ -144,7 +146,7 @@ const BadgeTypesTable = ({ setRecord, record }: Props) => {
                 console.log("newTotal: ", newTotal);
 
                 setTotal(newTotal);
-
+                
                 return record.badge_order === value;
             },
             render: (text: string, rec: any) => {

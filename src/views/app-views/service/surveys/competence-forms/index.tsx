@@ -10,7 +10,7 @@ import { components } from 'API/types';
 
 import { TableWithPagination } from '../components/TableWithPagination';
 import AvatarStatus from '../../../../../components/shared-components/AvatarStatus';
-import DataText from '../../../../../components/shared-components/DataText';
+import DataText from '../../../../../components/shared-components/DataText/index';
 
 const { Fragment, useEffect, useState } = React;
 const { Title, Text } = Typography;

@@ -12,30 +12,23 @@ const HandleFileUpload = async (fileList: UploadFile[]) => {
 
     try {
         for (const file of fileList) {
-            try {
-                const response = await fetch(file.originFileObj);
-                if (!response.ok) {
-                    throw new Error(
-                        `Failed to fetch file: ${response.status} - ${response.statusText}`,
-                    );
-                }
-
-                const blob = await response.blob();
-                formData.append("file", blob, file.name);
-            } catch (error) {
-                console.error("Error fetching file:", error);
-                throw new Error("Error fetching file");
+            if (file.originFileObj) {
+                formData.append("file", file.originFileObj, file.name);
+            } else {
+                console.error("No file object found");
+                throw new Error("No file object found");
             }
         }
 
         try {
             const response = await FileUploaderService.upload(formData);
-            return response.link;
+            return response.link; // Adjust based on actual response structure
         } catch (uploadError) {
             console.error("Error uploading file:", uploadError);
             throw new Error("Error uploading file");
         }
     } catch (error) {
+        console.error("Error in file upload process:", error);
         void message.error(
             LocalText.getName({
                 name: "Не удалось загрузить файл.",

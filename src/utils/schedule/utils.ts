@@ -118,14 +118,14 @@ export const findSubDivisionNode = (
             | null
             | undefined = staffDivisions.find((item) => item.id === departmentId);
         if (department) {
-            return department;
+            return department as components['schemas']['ArchiveStaffDivisionRead'];
         } else {
             for (let i = 0; i < staffDivisions.length; i++) {
                 const item = staffDivisions[i];
                 if (item.children) {
-                    department = findSubDivisionNode(item.children, departmentId);
+                    department = findSubDivisionNode(item.children as components['schemas']['ArchiveStaffDivisionRead'][], departmentId);
                     if (department) {
-                        return department;
+                        return department as components['schemas']['ArchiveStaffDivisionRead'];
                     }
                 }
             }
@@ -224,13 +224,13 @@ export const findStaffUnitNode = (
             if (StaffUnitNode) {
                 foundStaffUnitNode = StaffUnitNode;
             } else if (Array.isArray(division.children) && division.children.length) {
-                const nestedStaffUnitNode = findStaffUnitNode(staffUnitId, division.children);
+                const nestedStaffUnitNode = findStaffUnitNode(staffUnitId, division.children as components['schemas']['ArchiveStaffDivisionRead'][]);
                 if (nestedStaffUnitNode) {
                     foundStaffUnitNode = nestedStaffUnitNode;
                 }
             }
         } else if (Array.isArray(division.children) && division.children.length) {
-            const nestedStaffUnitNode = findStaffUnitNode(staffUnitId, division.children);
+            const nestedStaffUnitNode = findStaffUnitNode(staffUnitId, division.children as components['schemas']['ArchiveStaffDivisionRead'][]);
             if (nestedStaffUnitNode) {
                 foundStaffUnitNode = nestedStaffUnitNode;
             }
@@ -405,7 +405,7 @@ export const processSubDivision = (
 
     if (modifiedDivision && modifiedDivision.children && modifiedDivision.children.length > 0) {
         for (let i = 0; i < modifiedDivision.children.length; i++) {
-            const modifiedChildrens = processSubDivision(modifiedDivision.children[i], callback);
+            const modifiedChildrens = processSubDivision(modifiedDivision.children[i] as components['schemas']['ArchiveStaffDivisionRead'], callback);
             if (modifiedChildrens) modifiedDivision.children[i] = modifiedChildrens;
         }
     }
@@ -635,7 +635,7 @@ export function replaceObjectById(
         }
 
         if (obj.children) {
-            return { ...obj, children: replaceObjectById(obj.children, id, replacement) };
+            return { ...obj, children: replaceObjectById(obj.children as components['schemas']['ArchiveStaffDivisionRead'][], id, replacement) };
         }
 
         return obj;
@@ -643,7 +643,7 @@ export function replaceObjectById(
 }
 
 export const embedStaffUnitNodeActual = (
-    embedded: ArrayElement<components['schemas']['StaffDivisionRead']['staff_units']>,
+    embedded: ArrayElement<components['schemas']['StaffDivisionRead']['staff_units']> | any,
     embeddedInto: components['schemas']['StaffDivisionRead'] | string,
     staffDivision: components['schemas']['StaffDivisionRead'][],
 ) => {
@@ -680,14 +680,14 @@ export const findSubDivisionNodeActual = (
             | null
             | undefined = staffDivisions.find((item) => item.id === departmentId);
         if (department) {
-            return department;
+            return department as components['schemas']['StaffDivisionRead'];
         } else {
             for (let i = 0; i < staffDivisions.length; i++) {
                 const item = staffDivisions[i];
                 if (item.children) {
-                    department = findSubDivisionNodeActual(item.children, departmentId);
+                    department = findSubDivisionNodeActual(item.children as components['schemas']['StaffDivisionRead'][], departmentId);
                     if (department) {
-                        return department;
+                        return department as components['schemas']['StaffDivisionRead'];
                     }
                 }
             }

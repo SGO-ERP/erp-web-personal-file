@@ -139,9 +139,9 @@ const SettingClasses = ({ chooseItem }: Props) => {
                 },
             },
         }).then((response) => {
-            if (response.data) {
-                const filtered: components['schemas']['PositionRead'][] = response?.data.filter(
-                    (item) => item?.name === 'Инструктор',
+             if (response.data?.objects) {
+                const filtered: components['schemas']['PositionRead'][] = response.data.objects.filter(
+                    (item) => item.name === 'Инструктор'
                 );
                 setIDInstractor(filtered);
             }

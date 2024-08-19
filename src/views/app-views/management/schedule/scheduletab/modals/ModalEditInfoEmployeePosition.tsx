@@ -32,8 +32,8 @@ const ModalEditInfoEmployeePosition = ({ modalCase, openModal, staffUnit, whoIs,
     const dispatch = useAppDispatch();
     const [positionList, setPositionList] = useState([]);
     const [scrollingLength, setScrollingLength] = useState({ skip: 0, limit: 10 });
-    const [searchText, setSearchText] = useState({});
-    const [maxCount, setMaxCount] = useState(0);
+    const [searchText, setSearchText] = useState<any>({});
+    const [maxCount, setMaxCount] = useState<any>(0);
 
     const handleCancel = () => {
         form.resetFields();
@@ -197,7 +197,7 @@ const ModalEditInfoEmployeePosition = ({ modalCase, openModal, staffUnit, whoIs,
     };
 
     const handleSearch = (value: string, type: string) => {
-        setSearchText((prevData) => ({ ...prevData, [type]: value }));
+        setSearchText((prevData: any) => ({ ...prevData, [type]: value }));
     };
     const handlePopupScroll = (e: any, type: string) => {
         const { target } = e;
@@ -219,11 +219,11 @@ const ModalEditInfoEmployeePosition = ({ modalCase, openModal, staffUnit, whoIs,
             baseUrl,
         });
 
-        setMaxCount((prevData) => ({ ...prevData, [type]: response.total }));
+        setMaxCount((prevData: any) => ({ ...prevData, [type]: response.total }));
 
         return response.objects
-            .filter((res) => res.user !== null)
-            .map((item) => ({
+            .filter((res: any) => res.user !== null)
+            .map((item: any) => ({
                 value: item.user?.id,
                 label: (
                     <>
@@ -280,7 +280,7 @@ const ModalEditInfoEmployeePosition = ({ modalCase, openModal, staffUnit, whoIs,
                             style={{ width: "100%" }}
                             onChange={handlePosition}
                             options={positionList}
-                            filterOption={(inputValue, option) =>
+                            filterOption={(inputValue, option: any) =>
                                 option?.label?.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0
                             }
                             onSearch={(e) => handleSearch(e, "position")}

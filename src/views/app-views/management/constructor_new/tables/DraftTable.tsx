@@ -46,7 +46,7 @@ const DraftTable: FC<{ searchValue: string }> = ({ searchValue }) => {
     }, [current, pageSize, searchValue]);
 
     const dublicate = async (id: string) => {
-        HrDocumentTemplatesService.hr_template_dublicate(id);
+        HrDocumentTemplatesService.hr_template_duplicate(id);
 
         // update dataSource (add copy of duplicated template)
 

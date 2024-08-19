@@ -43,7 +43,7 @@ const ModalDeleteStaffDivision = ({ isOpen, onClose, item }: Props) => {
         );
         if (staff_division?.children !== undefined && staff_division?.children?.length > 0) {
             for (const child of staff_division.children) {
-                res = res.concat(getArchiveStaffUnitsFromParent(child));
+                res = res.concat(getArchiveStaffUnitsFromParent(child as components['schemas']['ArchiveStaffDivisionRead']));
             }
         }
         return res;
@@ -64,7 +64,7 @@ const ModalDeleteStaffDivision = ({ isOpen, onClose, item }: Props) => {
     async function fetchData(obj: components['schemas']['ArchiveStaffDivisionRead']) {
         // Отправить запрос и получить данные
         const response = await PrivateServices.get('/api/v1/archive_staff_division/{id}/', {
-            params: { path: { id: obj.id } },
+            params: { path: { id: obj.id! } },
         });
         const result = await response.data;
 
@@ -90,8 +90,7 @@ const ModalDeleteStaffDivision = ({ isOpen, onClose, item }: Props) => {
             // Обойти каждый дочерний объект
             for (const child of obj.children) {
                 // Отправить запрос и заполнить данные для дочернего объекта
-                const updatedChild: components['schemas']['ArchiveStaffDivisionRead'] =
-                    await fetchData(child);
+                const updatedChild: components['schemas']['ArchiveStaffDivisionRead'] = await fetchData(child as any) as components['schemas']['ArchiveStaffDivisionRead'];
 
                 // Рекурсивно заполнить данные внутри дочернего объекта
                 const populatedChild: components['schemas']['ArchiveStaffDivisionRead'] =
@@ -152,7 +151,7 @@ const ModalDeleteStaffDivision = ({ isOpen, onClose, item }: Props) => {
                     }
                 });
             } else {
-                getArchiveStaffUnitsFromParent(responce).forEach((staffUnit) => {
+                getArchiveStaffUnitsFromParent(responce as components['schemas']['ArchiveStaffDivisionRead']).forEach((staffUnit) => {
                     if (staffUnit.user_id !== null) {
                         dispatch(addRemoteDisposal(staffUnit));
                     }

@@ -43,7 +43,7 @@ const TypeOfSpecTrain = ({ setValue, value }: Props) => {
             };
 
             if (children && children.length > 0) {
-                options.children = generateOptions(children);
+                options.children = generateOptions(children as components['schemas']['ActivityRead'][]);
             }
 
             return options;

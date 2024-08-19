@@ -12,7 +12,7 @@ interface Props {
 }
 
 const ModalQualReqWatch = ({ isOpen, onClose, staff_unit }: Props) => {
-    const [staffUnit, setStaffUnit] = useState(null)
+    const [staffUnit, setStaffUnit] = useState<any>(null)
     const [isLoading, setIsLoading] = useState(false)
 
     const [form] = Form.useForm();
@@ -33,9 +33,9 @@ const ModalQualReqWatch = ({ isOpen, onClose, staff_unit }: Props) => {
                 setIsLoading(true)
 
                 const id = staff_unit.id
-                const url =`/api/v1/staff_unit/${id}`
-                const response = await PrivateServices.get(url)
-                const staffUnit = response.data
+                const url: any =`/api/v1/staff_unit/${id}`
+                const response = await PrivateServices.get(url, {} as never)
+                const staffUnit: any = response.data
                 setStaffUnit(staffUnit)
             } catch (error) {
                 console.log(error)
@@ -46,7 +46,7 @@ const ModalQualReqWatch = ({ isOpen, onClose, staff_unit }: Props) => {
         getStaffUnit()
     }, [staff_unit])
 
-    if (staffUnit?.requirements == null && isOpen) {
+    if (staffUnit?.requirements== null && isOpen) {
         notification.error({
             message: <IntlMessage id={'qual.req.null'} />,
         });

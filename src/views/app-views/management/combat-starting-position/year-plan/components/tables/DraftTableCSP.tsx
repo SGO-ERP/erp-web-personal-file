@@ -72,7 +72,7 @@ const DraftTableCsp = () => {
         });
     };
 
-    const columns = [
+    const columns: any = [
         {
             dataIndex: 'created_at',
             key: 'created_at',

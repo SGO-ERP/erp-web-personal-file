@@ -36,7 +36,7 @@ export const dataTakenKZ = [
     },
 ];
 
-export const auto_option = (isKkLanguage) => [
+export const auto_option = (isKkLanguage: any) => [
     {
         value: 'name',
         label: isKkLanguage ? 'Тақырып атауы' : 'Имя субъекта',
@@ -113,7 +113,7 @@ export const auto_option = (isKkLanguage) => [
     },
 ];
 
-export const cases = (isKkLanguage) => [
+export const cases = (isKkLanguage: any) => [
     {
         value: 0,
         label: isKkLanguage ? 'Атау септік' : 'Именительный падеж',
@@ -144,7 +144,7 @@ export const cases = (isKkLanguage) => [
     },
 ];
 
-export const dictionary = (isKkLanguage) => [
+export const dictionary = (isKkLanguage: any) => [
     {
         value: 'rank',
         label: isKkLanguage ? 'Жаңа тақырып атауы' : 'Новое звание субъекта',
@@ -183,7 +183,7 @@ export const dictionary = (isKkLanguage) => [
     },
 ];
 
-export const inputFormat = (isKkLanguage) => [
+export const inputFormat = (isKkLanguage: any) => [
     {
         value: 'string',
         label: isKkLanguage ? 'Жол' : 'Строка',
@@ -209,7 +209,7 @@ export const styleUnser = {
     justifyContent: 'center',
 };
 
-export const field_default = (isKkLanguage) => [
+export const field_default = (isKkLanguage: string) => [
     {
         value: 'signed_at',
         label: isKkLanguage ? 'Қол қойылған күні' : 'Дата подписания',

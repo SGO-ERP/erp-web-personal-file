@@ -68,7 +68,7 @@ const ModalChangePosition = ({ isOpen, onClose }: PropsTypes) => {
                     }
                 })
 
-                const rankOptions = response.data.objects.map(rank => ({
+                const rankOptions = (response.data?.objects as any).map((rank: any) => ({
                     value: rank.id,
                     label: LocalText.getName(rank),
                 }))

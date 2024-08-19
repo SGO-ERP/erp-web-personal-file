@@ -16,7 +16,7 @@ const TreeStaff = () => {
     const archiveStaffDivision = useAppSelector((state) => state.archiveStaffDivision.data);
     const [staffDivision, setStaffDivision] =
         useState<components['schemas']['ArchiveStaffDivisionRead']>();
-    const [staffUnit, setStaffUnit] = useState<components['schemas']['ArchiveStaffUnitRead']>();
+    const [staffUnit, setStaffUnit] = useState<components["schemas"]["ArchiveStaffUnitRead"] & { curator_of_id: string }>();
     const [staffUnitParent, setStaffUnitParent] =
         useState<components['schemas']['ArchiveStaffDivisionRead']>();
 
@@ -30,7 +30,7 @@ const TreeStaff = () => {
 
     useEffect(() => {
         if (selected === 'staffUnit' && staffUnitID) {
-            const foundStaffUnit = findStaffUnitNode(staffUnitID, archiveStaffDivision);
+            const foundStaffUnit: components["schemas"]["ArchiveStaffUnitRead"] & { curator_of_id: string } = findStaffUnitNode(staffUnitID, archiveStaffDivision) as components["schemas"]["ArchiveStaffUnitRead"] & { curator_of_id: string };
             foundStaffUnit && setStaffUnit(foundStaffUnit);
         }
     }, [selected, staffUnitID, searchParams, archiveStaffDivision]);

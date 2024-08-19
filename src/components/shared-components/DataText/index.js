@@ -34,6 +34,7 @@ TypographyStatus.propTypes = {
     name: PropTypes.string,
     type: PropTypes.string,
     onNameClick: PropTypes.func,
+    style: PropTypes.any,
 };
 
 export default TypographyStatus;

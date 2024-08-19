@@ -7284,6 +7284,8 @@ export type webhooks = Record<string, never>;
 
 export interface components {
   schemas: {
+    HrVacancyStaffDivisionRead : any,
+    UserShortRead: any,
     /** AbroadTravelCreate */
     AbroadTravelCreate: {
       /** Vehicle Type Id */

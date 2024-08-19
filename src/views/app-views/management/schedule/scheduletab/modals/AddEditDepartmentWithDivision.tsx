@@ -121,30 +121,30 @@ const AddEditDepartmentWithDivision = ({
                                 style={{ width: '100%' }}
                                 options={typeDiv
                                     .filter((item) => {
-                                        if (staffDivision?.type?.name.toLowerCase() === dep.dep) {
-                                            return item.name.toLowerCase() !== dep.dep;
+                                        if (staffDivision?.type?.name!.toLowerCase() === dep.dep) {
+                                            return item.name!.toLowerCase() !== dep.dep;
                                         } else if (
-                                            staffDivision?.type?.name.toLowerCase() === upr.upr
+                                            staffDivision?.type?.name!.toLowerCase() === upr.upr
                                         ) {
                                             return (
-                                                item.name.toLowerCase() !== upr.upr &&
-                                                item.name.toLowerCase() !== dep.dep
+                                                item.name!.toLowerCase() !== upr.upr &&
+                                                item.name!.toLowerCase() !== dep.dep
                                             );
                                         } else if (
-                                            staffDivision?.type?.name.toLowerCase() === otdel.otdel
+                                            staffDivision?.type?.name!.toLowerCase() === otdel.otdel
                                         ) {
                                             return (
-                                                item.name.toLowerCase() !== upr.upr &&
-                                                item.name.toLowerCase() !== dep.dep &&
-                                                item.name.toLowerCase() !== otdel.otdel
+                                                item.name!.toLowerCase() !== upr.upr &&
+                                                item.name!.toLowerCase() !== dep.dep &&
+                                                item.name!.toLowerCase() !== otdel.otdel
                                             );
                                         } else if (
                                             staffDivision?.type === null &&
                                             staffDivision?.parent_group_id === null
                                         ) {
                                             return (
-                                                item.name.toLowerCase() !== otdel.otdel &&
-                                                item.name.toLowerCase() !== group.group
+                                                item.name!.toLowerCase() !== otdel.otdel &&
+                                                item.name!.toLowerCase() !== group.group
                                             );
                                         }
                                         return item;

@@ -45,7 +45,7 @@ const ArchiveTable: FC<{ searchValue: string }> = ({ searchValue }) => {
     }, [current, pageSize, searchValue]);
 
     const dublicate = async (id: string) => {
-        await HrDocumentTemplatesService.hr_template_dublicate(id);
+        await HrDocumentTemplatesService.hr_template_duplicate(id);
 
         // update dataSource (add copy of duplicated template)
 

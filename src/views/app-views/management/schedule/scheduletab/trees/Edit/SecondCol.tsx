@@ -68,7 +68,7 @@ export const SecondCol = ({ staffUnit, staffDivision }: Props) => {
             },
         ];
         if (Array.isArray(division.children) && division.children.length > 0) {
-            getDivisionParents(division.children[0], updatedParents);
+            getDivisionParents(division.children[0] as components['schemas']['ArchiveStaffDivisionRead'], updatedParents);
         } else {
             setDivisionParents(updatedParents);
         }

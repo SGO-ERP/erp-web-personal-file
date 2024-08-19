@@ -16,7 +16,13 @@ import { useAppDispatch, useAppSelector } from "hooks/useStore";
 import { archive, duplicate } from "./utils/tableFunctions";
 import { RowItemType } from "./utils/interfaces";
 
-const ActiveTable: React.FC = () => {
+type ActiveTableProps = {
+    searchValue: string;
+}
+
+const ActiveTable: React.FC<ActiveTableProps> = ({
+    searchValue
+}) => {
     const [dataSource, setDataSource] = useState<RowItemType[]>([]);
     const [showSizeChanger] = useState(true);
 

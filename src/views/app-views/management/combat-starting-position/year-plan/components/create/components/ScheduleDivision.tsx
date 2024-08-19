@@ -68,7 +68,7 @@ const ScheduleDivision = ({
         }).then((r) => {
             if (r.data) {
                 setLoading(false);
-                const resultArray = combineChildren(r.data);
+                const resultArray = combineChildren(r.data as components['schemas']['StaffDivisionRead'][]);
 
                 if (resultArray) {
                     setTreeData(generateOptions(resultArray));

@@ -31,7 +31,7 @@ import ModalDeleteStaffDivision from "../../modals/ModalDeleteStaffDivision";
 import ModalDuplicateDivision from "../../modals/ModalDuplicateDivision";
 import "./../tree.css";
 import "./style.css";
-import { ConfirmDrag } from "../../modals/ConfirmDrag";
+// import { ConfirmDrag } from "../../modals/ConfirmDrag";
 import { TreeContext } from "../../../edit";
 import { TreeContextTypes } from "../../../../../../../utils/format/interfaces";
 import { PrivateServices } from "../../../../../../../API";
@@ -171,7 +171,7 @@ const VerticalTree = () => {
         staff_unit_id?: string,
     ) => {
         const isLast = isStaffUnitInLastSubDivision(item, archiveStaffDivision);
-        const position = item?.position !== null
+        const position: any = item?.position !== null
             ?
             item.position
             :
@@ -786,14 +786,14 @@ const VerticalTree = () => {
     return (
         <>
             <>
-                <ConfirmDrag
+                {/* <ConfirmDrag
                     options={dragOptions}
                     isOpen={isDragged}
                     onClose={() => {
                         setDragOptions(undefined);
                         setIsDragged(false);
                     }}
-                />
+                /> */}
                 <ModalAddStaffDiv
                     key={uuidv4()}
                     isOpen={isModalPosition}

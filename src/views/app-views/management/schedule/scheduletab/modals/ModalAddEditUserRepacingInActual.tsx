@@ -23,8 +23,8 @@ const ModalAddEditUserRepacingInActual = ({isOpen, onClose, staffUnit, type}: Pr
     const [choosedU, setChoosedU] = useState<string>();
     const [positionList, setPositionList] = useState([]);
     const [scrollingLength, setScrollingLength] = useState({skip: 0, limit: 10});
-    const [searchText, setSearchText] = useState({});
-    const [maxCount, setMaxCount] = useState(0);
+    const [searchText, setSearchText] = useState<any>({});
+    const [maxCount, setMaxCount] = useState<any>(0);
     const dispatch = useAppDispatch();
     const actualStructure = useAppSelector((state) => state.staffScheduleSlice.data);
     const handleCancel = () => {
@@ -86,7 +86,7 @@ const ModalAddEditUserRepacingInActual = ({isOpen, onClose, staffUnit, type}: Pr
                         dispatch(change(
                             embedStaffUnitNodeActual(
                                 {...responce?.data},
-                                staffUnit.staff_division_id,
+                                staffUnit.staff_division_id!,
                                 actualStructure,
                             ),
                         ));
@@ -112,7 +112,7 @@ const ModalAddEditUserRepacingInActual = ({isOpen, onClose, staffUnit, type}: Pr
     };
 
     const handleSearch = (value: string, type: string) => {
-        setSearchText((prevData) => ({...prevData, [type]: value}));
+        setSearchText((prevData: any) => ({...prevData, [type]: value}));
     };
     const handlePopupScroll = (e: any, type: string) => {
         const {target} = e;
@@ -136,9 +136,9 @@ const ModalAddEditUserRepacingInActual = ({isOpen, onClose, staffUnit, type}: Pr
         });
 
 
-        setMaxCount((prevData) => ({...prevData, [type]: response.total}));
+        setMaxCount((prevData: any) => ({...prevData, [type]: response.total}));
 
-        return response.objects.map((item) => ({
+        return response.objects.map((item: any) => ({
             value: item.users[0]?.id,
             label: <>{item.users[0]?.last_name} {item.users[0]?.first_name} {item.users[0]?.father_name}</>,
             objects: item.users[0]
@@ -190,7 +190,7 @@ const ModalAddEditUserRepacingInActual = ({isOpen, onClose, staffUnit, type}: Pr
                             style={{width: '100%'}}
                             onChange={handlePosition}
                             options={positionList}
-                            filterOption={(inputValue, option) =>
+                            filterOption={(inputValue, option: any) =>
                                 option?.label?.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0
                             }
                             onSearch={(e) => handleSearch(e, "position")}

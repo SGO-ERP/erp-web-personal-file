@@ -94,10 +94,11 @@ const SettingCredit = ({ chooseItem }: Props) => {
             },
         }).then((response) => {
             if (response.data) {
-                const filtered: components['schemas']['PositionRead'][] = response?.data.filter(
-                    (item) => item?.name === 'Инструктор',
-                );
-                setIDInstractor(filtered);
+                if (response.data) {
+                    const filtered: components['schemas']['PositionRead'][] = (response?.data as components['schemas']['PositionRead'][])
+                        .filter((item: components['schemas']['PositionRead']) => item?.name === 'Инструктор');
+                    setIDInstractor(filtered);
+                }
             }
         });
     }, []);

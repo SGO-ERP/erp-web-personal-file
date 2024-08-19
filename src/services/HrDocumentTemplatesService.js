@@ -21,6 +21,8 @@ HrDocumentTemplatesService.get_hr_documents_template = async function () {
     }
 };
 
+
+
 HrDocumentTemplatesService.get_hr_documents_template_by_id = async function (templateId) {
     try {
         const response = await ApiService.get(`hr-documents-template/${templateId}/`);
