@@ -534,7 +534,7 @@ const VerticalTree = () => {
                     {Array.isArray(item.children) && item.children.length
                         ? sorted()?.map((child, index) => {
                               return renderTreeNodes(
-                                  child,
+                                  child as components["schemas"]["StaffDivisionRead"],
                                   index + (item?.staff_units?.length ?? 0),
                                   concatBy([parentIndex, i], "-"),
                               );

@@ -5,6 +5,9 @@
 
 
 export interface paths {
+  "/api/v1/staff_list/task-status/{taskId}": {
+    get: operations["inflect_word_api_v1_render_inflect_get"];
+  },
   "/api/v1/search": {
     /**
      * Get all ServiceID

@@ -1,10 +1,24 @@
 // components/shared-components/AntTablePagination.js
 
 import { Table } from 'antd';
+import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 // TableWithPagination component is a wrapper around Ant Design's Table component.
 // It handles pagination and provides a fetchData callback function for custom data fetching.
-const TableWithPagination = ({
+
+type Props = {
+    isLoading?: boolean,
+    dataSource?: any,
+    columns?: any,
+    fetchData?: any,
+    saveCurrentPage?: any,
+    initialPage?: number,
+    initialPageSize?: number,
+    hasMore?: boolean,
+    pagination?: any,
+}
+
+const TableWithPagination: React.FC<Props> = ({
     isLoading,
     dataSource,
     columns,
@@ -31,10 +45,10 @@ const TableWithPagination = ({
     // Handle pagination change by updating the current page and page size.
     // Then, fetch data using the provided fetchData function.
     const handlePaginationChange = useCallback(
-        (page, pageSize) => {
+        (page: number, pageSize: number) => {
             setCurrentPage(page);
             setCurrentPageSize(pageSize);
-            fetchData({ page, limit: pageSize }).then((result) => {
+            fetchData({ page, limit: pageSize }).then((result: any) => {
                 const hasMore = result.payload.hasMore;
                 setHasNextPage(hasMore);
             });
